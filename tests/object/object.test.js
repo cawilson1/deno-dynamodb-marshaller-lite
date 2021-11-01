@@ -3,18 +3,18 @@ import { marshall, unmarshall } from "../../mod.js";
 import {
   objectJson,
   objectDDB,
-  //   multiObjectJSON,
-  //   multiObjectDDB,
+  deepObjectDDB,
+  deepObjectJson,
 } from "./objectSamples.js";
 
 const { assertEquals } = Testing;
 
 Deno.test("Call marshall() on json with a object value type", () => {
   assertEquals(marshall(objectJson), objectDDB);
-  //   assertEquals(marshall(multiObjectJSON), multiObjectDDB);
+  assertEquals(marshall(deepObjectJson), deepObjectDDB);
 });
 
 Deno.test("Call ummarshall() on json with a object value type", () => {
   assertEquals(unmarshall(objectDDB), objectJson);
-  //   assertEquals(unmarshall(multiObjectDDB), multiObjectJSON);
+  assertEquals(unmarshall(deepObjectDDB), deepObjectJson);
 });

@@ -11,6 +11,7 @@ function marshallBranch(val) {
   else if (type === "boolean") return marshallBoolean(val);
   else if (type === "number") return marshallNumber(val);
   else if (val === null) return marshallNull(val);
+  else if (Array.isArray(val)) return marshallArray(val);
 }
 
 function unmarshallBranch(val) {
@@ -21,7 +22,7 @@ function unmarshallBranch(val) {
         val
       )}`
     );
-  const validAttributes = ["S", "BOOL", "N", "NULL"];
+  const validAttributes = ["S", "BOOL", "N", "NULL", "L"];
   if (!includes(attrName)(validAttributes))
     _throw(
       `he attribute was not one of the following: ${JSON.stringify(
@@ -29,6 +30,7 @@ function unmarshallBranch(val) {
       )}`
     );
   if (attrName === "NULL") return null;
+  if (attrName === "L") return unmarshallArray(val);
   return prop(attrName)(val);
 }
 
@@ -39,3 +41,6 @@ const marshallString = (arg) => ({ S: arg });
 const marshallBoolean = (arg) => ({ BOOL: arg });
 const marshallNumber = (arg) => ({ N: arg });
 const marshallNull = (arg) => ({ NULL: true });
+const marshallArray = (arg) => ({ L: marshall(arg) });
+
+const unmarshallArray = (arg) => unmarshall(prop("L")(arg));

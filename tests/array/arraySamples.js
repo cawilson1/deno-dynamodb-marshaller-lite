@@ -8,20 +8,20 @@ export const arrayDDB = {
   },
 };
 
-// export const multiArrayJSON = {
-//   foo: true,
-//   bar: false,
-//   baz: false,
-// };
+export const multiArrayJSON = {
+  foo: true,
+  bar: false,
+  baz: false,
+};
 
-// export const multiArrayDDB = {
-//   foo: {
-//     BOOL: true,
-//   },
-//   bar: {
-//     BOOL: false,
-//   },
-//   baz: {
-//     BOOL: false,
-//   },
-// };
+export const multiArrayDDB = {
+  foo: {
+    BOOL: true,
+  },
+  bar: {
+    BOOL: false,
+  },
+  baz: {
+    BOOL: false,
+  },
+};

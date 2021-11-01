@@ -12,6 +12,8 @@ export const multiStringJSON = {
   foo: "bar",
   bar: "baz",
   baz: "This is another string",
+  empStr: "",
+  numStr: "8.3",
 };
 
 export const multiStringDDB = {
@@ -23,5 +25,11 @@ export const multiStringDDB = {
   },
   baz: {
     S: "This is another string",
+  },
+  empStr: {
+    S: "",
+  },
+  numStr: {
+    S: "8.3",
   },
 };

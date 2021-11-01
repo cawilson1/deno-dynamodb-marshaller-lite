@@ -4,7 +4,7 @@ export const objectJson = {
 
 export const objectDDB = {
   foo: {
-    M: { str: { S: "a" }, num: { N: 1 }, bool: { BOOL: false } },
+    M: { str: { S: "a" }, num: { N: "1" }, bool: { BOOL: false } },
   },
 };
 
@@ -27,17 +27,19 @@ export const deepObjectDDB = {
   foo: {
     M: {
       str: { S: "a" },
-      num: { N: 1 },
+      num: { N: "1" },
       bool: { BOOL: false },
       obj: {
         M: {
           str: { S: "a" },
-          num: { N: 1 },
+          num: { N: "1" },
           bool: { BOOL: false },
-          obj: { M: { str: { S: "a" }, num: { N: 1 }, bool: { BOOL: false } } },
+          obj: {
+            M: { str: { S: "a" }, num: { N: "1" }, bool: { BOOL: false } },
+          },
         },
       },
-      arr: { L: [{ S: "a" }, { N: 1 }, { BOOL: false }] },
+      arr: { L: [{ S: "a" }, { N: "1" }, { BOOL: false }] },
     },
   },
 };

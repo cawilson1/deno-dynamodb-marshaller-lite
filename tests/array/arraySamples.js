@@ -4,7 +4,7 @@ export const arrayJson = {
 
 export const arrayDDB = {
   foo: {
-    L: [{ S: "a" }, { N: 1 }, { BOOL: false }],
+    L: [{ S: "a" }, { N: "1" }, { BOOL: false }],
   },
 };
 
@@ -22,24 +22,26 @@ export const deepArrayDDB = {
   foo: {
     L: [
       { S: "a" },
-      { N: 1 },
+      { N: "1" },
       { BOOL: false },
       {
         L: [
           { S: "a" },
-          { N: 1 },
+          { N: "1" },
           { BOOL: false },
           {
             L: [
               { S: "a" },
-              { N: 1 },
+              { N: "1" },
               { BOOL: false },
-              { M: { str: { S: "a" }, num: { N: 1 }, bool: { BOOL: false } } },
+              {
+                M: { str: { S: "a" }, num: { N: "1" }, bool: { BOOL: false } },
+              },
             ],
           },
         ],
       },
-      { M: { str: { S: "a" }, num: { N: 1 }, bool: { BOOL: false } } },
+      { M: { str: { S: "a" }, num: { N: "1" }, bool: { BOOL: false } } },
     ],
   },
 };

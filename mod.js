@@ -26,10 +26,11 @@ function unmarshallBranch(val) {
   const validAttributes = ["S", "BOOL", "N", "NULL", "L", "M"];
   if (!includes(attrName)(validAttributes))
     _throw(
-      `he attribute was not one of the following: ${JSON.stringify(
+      `the attribute was not one of the following: ${JSON.stringify(
         validAttributes
       )}`
     );
+  if (attrName === "N") return unmarshallNumber(val);
   if (attrName === "NULL") return null;
   if (attrName === "L") return unmarshallArray(val);
   if (attrName === "M") return unmarshallObject(val);
@@ -41,10 +42,11 @@ export const unmarshall = map(unmarshallBranch);
 
 const marshallString = (arg) => ({ S: arg });
 const marshallBoolean = (arg) => ({ BOOL: arg });
-const marshallNumber = (arg) => ({ N: arg });
+const marshallNumber = (arg) => ({ N: `${arg}` });
 const marshallNull = (arg) => ({ NULL: true });
 const marshallArray = (arg) => ({ L: marshall(arg) });
 const marshallObject = (arg) => ({ M: marshall(arg) });
 
+const unmarshallNumber = (arg) => Number(prop("N")(arg));
 const unmarshallArray = (arg) => unmarshall(prop("L")(arg));
 const unmarshallObject = (arg) => unmarshall(prop("M")(arg));

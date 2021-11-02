@@ -37,6 +37,7 @@ Deno.test("Successfully unmarshall a dynamodb getItem response", async () => {
     TableName: tableName,
     Key: marshall({ pk: `marshallerghtests`, sk: "TestItem" }),
   });
+
   assertEquals(getResponse.Item, {
     pk: {
       S: pk,

@@ -35,7 +35,7 @@ Deno.test("Call putItem on a marshalled JSON object", async () => {
 Deno.test("Successfully unmarshall a dynamodb getItem response", async () => {
   const getResponse = await ddb.getItem({
     TableName: tableName,
-    Key: marshall({ pk: `marshallerghtests`, sk: "TestItem" }),
+    Key: marshall({ pk, sk }),
   });
 
   assertEquals(getResponse.Item, {

@@ -19,3 +19,8 @@ jobs:
           echo pk=${{ secrets.PK }} >> .env
           echo sk=${{ secrets.SK }} >> .env
           deno test --allow-read --allow-env --allow-net
+          rm .env
+      - run: |
+          deno install -A -f --unstable --no-check https://x.nest.land/eggs@0.3.8/eggs.ts
+          eggs link ${{ secrets.NESTAPIKEY }}
+          eggs publish --yes

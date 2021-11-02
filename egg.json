@@ -1,0 +1,22 @@
+{
+  "$schema": "https://x.nest.land/eggs@0.3.8/src/schema.json",
+  "name": "dynamodb-marshaller-lite",
+  "entry": "./mod.js",
+  "description": "Module to provide minimum functionality marshalling plain JS objects to DynamoDB format",
+  "homepage": "https://github.com/cawilson1/deno-dynamodb-marshaller-lite",
+  "version": "0.2.2",
+  "releaseType": "patch",
+  "unstable": false,
+  "unlisted": false,
+  "files": [
+    "./mod.js",
+    "./README.md",
+    "./deps.js",
+    "./utils/**/*"
+  ],
+  "ignore": [],
+  "checkFormat": false,
+  "checkTests": false,
+  "checkInstallation": false,
+  "check": true
+}

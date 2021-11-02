@@ -11,7 +11,11 @@ jobs:
         with:
           deno-version: v1.x
       - run: |
-          deno --version
-          deno run https://deno.land/std/examples/welcome.ts
-          deno install --allow-read -n deno_cat https://deno.land/std/examples/cat.ts
-          deno_cat ./README.md
+          touch .env
+          echo awsAccessKeyId=${{ secrets.AWSACCESSKEYID }} >> .env
+          echo awsSecretKey=${{ secrets.AWSSECRETKEY }} >> .env
+          echo region=${{ secrets.REGION }} >> .env
+          echo tableName=${{ secrets.TABLENAME }} >> .env
+          echo pk=${{ secrets.PK }} >> .env
+          echo sk=${{ secrets.SK }} >> .env
+          deno test --allow-read --allow-env --allow-net
